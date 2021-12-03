@@ -16,6 +16,7 @@ public class Weapone : MonoBehaviour
 
     private TMP_Text patrons;
     // Start is called before the first frame update
+    public Door[] door;
     private void Start()
     {
         currentPatrons = clip;
@@ -44,8 +45,21 @@ public class Weapone : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.R))
         {
+            foreach(Door doors in door)
+            {
+                doors.MoveDoor(true);
+            }
+
             Reload();
             DisplayPatrons();
+        }
+
+        if (Input.GetKeyDown(KeyCode.L))
+        {
+            foreach (Door doors in door)
+            {
+                doors.MoveDoor(false);
+            }
         }
 
     }
