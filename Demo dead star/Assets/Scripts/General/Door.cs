@@ -15,6 +15,8 @@ public class Door : MonoBehaviour
     Vector3 targetPos;
     static int a = 0;
     static int b = 0;
+
+    bool needToClose = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -36,20 +38,22 @@ public class Door : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(a + " + "+ b);
+        if (needToClose)
+        {
+            CloseDoor();
+        }
     }
 
     public void MoveDoor(bool whatDo)
     {
-        if (whatDo /*&& !doorAlreadyOpen*/)
+        if (whatDo)
         {
             if (!doorAlreadyOpen) 
             OpenDoor();
         }
         else 
         {
-            if(doorAlreadyOpen)
-            CloseDoor();
+            needToClose = true;
         }
     }
     void XLeftDoor()
@@ -115,15 +119,13 @@ public class Door : MonoBehaviour
 
     void CloseDoor()
     {
+
         transform.position = Vector3.MoveTowards(transform.position, startPosition, speed * Time.deltaTime);
         if (transform.position == startPosition)
         {
+            needToClose = false;
             doorAlreadyOpen = false;
         }
-        //else
-        //{
-        //    CloseDoor();
-        //}
         b++;
     }
 }

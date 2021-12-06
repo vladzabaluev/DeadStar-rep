@@ -6,6 +6,7 @@ public class DoorController : MonoBehaviour
 {
     Door door1;
     Door door2;
+    public float timeToClose = 0.2f;
     // Start is called before the first frame update
     void Start()
     {
@@ -27,7 +28,7 @@ public class DoorController : MonoBehaviour
             door2.MoveDoor(true);
         }
     }
-
+   
     private void OnTriggerExit(Collider other)
     {
         if (other.CompareTag("Player"))
