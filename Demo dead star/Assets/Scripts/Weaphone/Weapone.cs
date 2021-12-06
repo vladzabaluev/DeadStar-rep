@@ -45,23 +45,8 @@ public class Weapone : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.R))
         {
-            foreach(Door doors in door)
-            {
-                doors.MoveDoor(true);
-            }
-
             Reload();
-            DisplayPatrons();
         }
-
-        if (Input.GetKeyDown(KeyCode.L))
-        {
-            foreach (Door doors in door)
-            {
-                doors.MoveDoor(false);
-            }
-        }
-
     }
 
     public bool topUpPatrons(int addingPatrons)
@@ -102,6 +87,7 @@ public class Weapone : MonoBehaviour
                 currentPatrons = clip;
             }
         }
+        DisplayPatrons();
     }
 
     void DisplayPatrons()
@@ -113,3 +99,4 @@ public class Weapone : MonoBehaviour
         Gizmos.DrawRay(transform.position, transform.forward * maxDistance);
     }
 }
+
