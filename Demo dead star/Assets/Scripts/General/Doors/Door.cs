@@ -16,7 +16,8 @@ public class Door : MonoBehaviour
     static int a = 0;
     static int b = 0;
 
-    bool needToClose = false;
+    public bool needToClose = false;
+    CloseDoor CD;
     // Start is called before the first frame update
     void Start()
     {
@@ -33,15 +34,17 @@ public class Door : MonoBehaviour
 
 
         leftDoor = transform.CompareTag("LeftDoor");
+
+        CD = GetComponentInParent<CloseDoor>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (needToClose)
-        {
-            CloseDoor();
-        }
+        //if (needToClose)
+        //{
+        //    CloseDoor();
+        //}
     }
 
     public void MoveDoor(bool whatDo)
@@ -54,6 +57,7 @@ public class Door : MonoBehaviour
         else 
         {
             needToClose = true;
+            CD.enabled = true;
         }
     }
     void XLeftDoor()
@@ -62,7 +66,6 @@ public class Door : MonoBehaviour
         transform.position = Vector3.MoveTowards(transform.position, targetPos, speed * Time.deltaTime);
         proverka();
     }
-
     void ZLeftDoor()
     {
         targetPos = new Vector3(startPosition.x, startPosition.y, startPosition.z - moveDistanse);
@@ -75,13 +78,13 @@ public class Door : MonoBehaviour
         transform.position = Vector3.MoveTowards(transform.position, targetPos, speed * Time.deltaTime);
         proverka();
     }
-
     void ZRightDoor()
     {
         targetPos = new Vector3(startPosition.x, startPosition.y, startPosition.z + moveDistanse);
         transform.position = Vector3.MoveTowards(transform.position, targetPos, speed * Time.deltaTime);
         proverka();
     }
+
     void OpenDoor()
     {
         if (leftDoor)
@@ -117,13 +120,13 @@ public class Door : MonoBehaviour
         }
     }
 
-    void CloseDoor()
+    public void CloseDoor()
     {
-
         transform.position = Vector3.MoveTowards(transform.position, startPosition, speed * Time.deltaTime);
         if (transform.position == startPosition)
         {
             needToClose = false;
+            CD.enabled = false;
             doorAlreadyOpen = false;
         }
         b++;
