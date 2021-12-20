@@ -20,7 +20,6 @@ public class Weapone : MonoBehaviour
     {
         currentPatrons = clip;
         allPatrons = maxBul;
-        //GameObject test = GameObject.Find("/MainCanvas/PatronsInfo");
         patrons = GameObject.Find("/MainCanvas/PatronsInfo").GetComponent<TMP_Text>();
         DisplayPatrons();
     }
