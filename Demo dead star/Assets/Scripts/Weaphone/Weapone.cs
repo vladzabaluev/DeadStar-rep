@@ -16,7 +16,6 @@ public class Weapone : MonoBehaviour
 
     private TMP_Text patrons;
     // Start is called before the first frame update
-    public Door[] door;
     private void Start()
     {
         currentPatrons = clip;
@@ -30,18 +29,25 @@ public class Weapone : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0)) 
         {
-            RaycastHit hit;
-            if (Physics.Raycast(transform.position,transform.forward, out hit, maxDistance))
+            if (currentPatrons > 0)
             {
-                if (hit.transform.CompareTag("Enemy"))
+                RaycastHit hit;
+                if (Physics.Raycast(transform.position, transform.forward, out hit, maxDistance))
                 {
-                    hit.transform.GetComponent<DamageSystem>().TakeDamage(damage);
-                    Instantiate(hitEffect, hit.transform.position, hit.transform.rotation);
-                    
+                    if (hit.transform.CompareTag("Enemy"))
+                    {
+                        hit.transform.GetComponent<DamageSystem>().TakeDamage(damage);
+                        Instantiate(hitEffect, hit.transform.position, hit.transform.rotation);
+
+                    }
                 }
+                currentPatrons--;
+                DisplayPatrons();
             }
-            currentPatrons--;
-            DisplayPatrons();
+            else
+            {
+                Reload();
+            }
         }
         if (Input.GetKeyDown(KeyCode.R))
         {
