@@ -6321,18 +6321,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3434567503274431321, guid: 9507337d9d2da864caf9b9de2fdb8763,
         type: 3}
+      propertyPath: m_BackGroundColor.a
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3434567503274431321, guid: 9507337d9d2da864caf9b9de2fdb8763,
+        type: 3}
       propertyPath: m_BackGroundColor.b
-      value: 0.09019608
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3434567503274431321, guid: 9507337d9d2da864caf9b9de2fdb8763,
         type: 3}
       propertyPath: m_BackGroundColor.g
-      value: 0.09019608
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3434567503274431321, guid: 9507337d9d2da864caf9b9de2fdb8763,
         type: 3}
       propertyPath: m_BackGroundColor.r
-      value: 0.09019608
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3434567503274431323, guid: 9507337d9d2da864caf9b9de2fdb8763,
         type: 3}
@@ -9893,59 +9898,6 @@ MonoBehaviour:
     type: 3}
   clip: 30
   maxBul: 120
-  door:
-  - {fileID: 2169148319967563916}
-  - {fileID: 7542005045352846078}
-  - {fileID: 4376077677033464858}
-  - {fileID: 357910515726314484}
-  - {fileID: 8776976581405283849}
-  - {fileID: 3457173609611800348}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 6205311868513740508}
-  - {fileID: 3643258250955524781}
-  - {fileID: 3302693305429382189}
-  - {fileID: 5592515464696368715}
-  - {fileID: 7326045792897472146}
-  - {fileID: 4269374452664780452}
-  - {fileID: 2660746341657966658}
-  - {fileID: 6577047271560970992}
-  - {fileID: 3174336675713300618}
-  - {fileID: 5857441796554166739}
-  - {fileID: 5731654620752813342}
-  - {fileID: 4834321033112596590}
-  - {fileID: 7608445958783721696}
-  - {fileID: 7563093969737964661}
-  - {fileID: 5637703660372707857}
-  - {fileID: 7131595368933014770}
-  - {fileID: 8165166405253997771}
-  - {fileID: 2733660518686755984}
-  - {fileID: 2434327937861322488}
-  - {fileID: 7036586975766948640}
-  - {fileID: 5263277366106440268}
-  - {fileID: 8717844921891309659}
-  - {fileID: 3581718958468928208}
-  - {fileID: 1133124975494110022}
-  - {fileID: 3937103062006600100}
-  - {fileID: 2289941417960161204}
-  - {fileID: 2172064715668680756}
-  - {fileID: 2843207212040260812}
-  - {fileID: 2843770544389964795}
-  - {fileID: 8447330812935034131}
-  - {fileID: 2421977011368443703}
-  - {fileID: 7322583633199566220}
-  - {fileID: 414624197008613424}
-  - {fileID: 3481523067521170260}
-  - {fileID: 4851164176638824638}
-  - {fileID: 8290011307969188779}
-  - {fileID: 6770551128396355720}
-  - {fileID: 8980233733143758013}
-  - {fileID: 827271176131760625}
-  - {fileID: 3480726767683036502}
-  - {fileID: 1308318233647396333}
-  - {fileID: 6804033700075466038}
 --- !u!143 &486500295800799439
 CharacterController:
   m_ObjectHideFlags: 0
