@@ -8,6 +8,9 @@ public class Weapone : MonoBehaviour
     public float maxDistance = 25f;
     public int damage = 5;
     public ParticleSystem hitEffect;
+    public AudioSource AudioSource;
+    public AudioClip Click;
+    public AudioClip Rel;
 
     int currentPatrons;
     public int clip;
@@ -37,9 +40,9 @@ public class Weapone : MonoBehaviour
                     {
                         hit.transform.GetComponent<DamageSystem>().TakeDamage(damage);
                         Instantiate(hitEffect, hit.transform.position, hit.transform.rotation);
-
-                    }
+                        }
                 }
+                AudioSource.PlayOneShot(Click);
                 currentPatrons--;
                 DisplayPatrons();
             }
@@ -81,6 +84,7 @@ public class Weapone : MonoBehaviour
     {
         if (currentPatrons < clip)
         {
+            AudioSource.PlayOneShot(Rel);
             if (allPatrons < clip)
             {
                 currentPatrons += allPatrons;
