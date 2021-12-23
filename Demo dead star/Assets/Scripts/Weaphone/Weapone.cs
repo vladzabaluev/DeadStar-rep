@@ -8,7 +8,8 @@ public class Weapone : MonoBehaviour
     public float maxDistance = 25f;
     public int damage = 5;
     public ParticleSystem hitEffect;
-    public AudioSource AudioSource;
+
+    AudioSource _audioSource;
     public AudioClip Click;
     public AudioClip Rel;
 
@@ -24,6 +25,7 @@ public class Weapone : MonoBehaviour
         currentPatrons = clip;
         allPatrons = maxBul;
         patrons = GameObject.Find("/MainCanvas/PatronsInfo").GetComponent<TMP_Text>();
+        _audioSource = GetComponent<AudioSource>();
         DisplayPatrons();
     }
     // Update is called once per frame
@@ -42,7 +44,7 @@ public class Weapone : MonoBehaviour
                         Instantiate(hitEffect, hit.transform.position, hit.transform.rotation);
                         }
                 }
-                AudioSource.PlayOneShot(Click);
+                _audioSource.PlayOneShot(Click);
                 currentPatrons--;
                 DisplayPatrons();
             }
@@ -84,7 +86,7 @@ public class Weapone : MonoBehaviour
     {
         if (currentPatrons < clip)
         {
-            AudioSource.PlayOneShot(Rel);
+            _audioSource.PlayOneShot(Rel);
             if (allPatrons < clip)
             {
                 currentPatrons += allPatrons;
