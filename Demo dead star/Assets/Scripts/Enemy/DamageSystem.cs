@@ -6,9 +6,11 @@ public class DamageSystem : HealthSystem
 {
     public int mHealth;
     Healthbar botHP;
+    bool assignValue = false;
     // Start is called before the first frame update
     private void Start()
     {
+        OnEnable();
     }
 
     public override void Dead()
@@ -18,9 +20,17 @@ public class DamageSystem : HealthSystem
 
     private void OnEnable()
     {
-        botHP = this.transform.GetChild(0).GetChild(0).GetComponentInChildren<Healthbar>();
-        EnterHealth(mHealth, botHP);
+        if (assignValue)
+        {
+            botHP = this.transform.GetChild(0).GetChild(0).GetComponentInChildren<Healthbar>();
+            EnterHealth(mHealth, botHP);
+        }
 
+    }
+
+    private void OnDisable()
+    {
+        assignValue = true;
     }
 }
 
