@@ -9,13 +9,18 @@ public class DamageSystem : HealthSystem
     // Start is called before the first frame update
     private void Start()
     {
-        botHP = this.transform.GetChild(0).GetChild(0).GetComponentInChildren<Healthbar>();
-        EnterHealth(mHealth, botHP); 
     }
 
     public override void Dead()
     {
         Destroy(gameObject);
+    }
+
+    private void OnEnable()
+    {
+        botHP = this.transform.GetChild(0).GetChild(0).GetComponentInChildren<Healthbar>();
+        EnterHealth(mHealth, botHP);
+
     }
 }
 
